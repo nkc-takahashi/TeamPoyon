@@ -8,9 +8,9 @@ public class Frick : MonoBehaviour {
     Vector2 touchEndPos;
 
     string Direction;
-    public float flickJudge;
+    public float flickJudge;//フリックの判定をする値
 
-
+    public bool Zensin;//前進する＆しないのフラグ
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +20,20 @@ public class Frick : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Flick();
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            Flick();
+            GetDirection();
+        }
+
+        if (Zensin == true)
+        {
+            
+        }
     }
     void Flick()//フリックの位置を取得
     {
@@ -61,14 +75,33 @@ public class Frick : MonoBehaviour {
         switch (Direction)
         {
             case "right":
-                Debug.Log("右フリック"); //右フリックされた時の処理
+                Debug.Log("右フリック");
+                //右フリックされた時の処理
+                if (Zensin == false)
+                {
+                    Zensin = true;
+                }else if(Zensin == true)
+                {
+                    Zensin = false;
+                }
                 break;
 
             case "left":
-                Debug.Log("左フリック");//左フリックされた時の処理
+                Debug.Log("左フリック");
+                //左フリックされた時の処理
+                if (Zensin == false)
+                {
+                    Zensin = true;
+                }
+                else if (Zensin == true)
+                {
+                    Zensin = false;
+                }
                 break;
+
             case "touch":
-                Debug.Log("タッチ");//タッチされた時の処理
+                Debug.Log("タッチ");
+                Debug.Log(touchEndPos);//タッチされた時の処理
                 break;
         }
 
