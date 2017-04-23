@@ -89,7 +89,6 @@ public class Frick : MonoBehaviour {
         switch (Direction)
         {
             case "right":
-                Debug.Log("右フリック");
                 //右フリックされた時の処理
                 if (Zensin == false)
                 {
@@ -102,7 +101,6 @@ public class Frick : MonoBehaviour {
                 break;
 
             case "left":
-                Debug.Log("左フリック");
                 //左フリックされた時の処理
                 if (Zensin == false)
                 {
@@ -115,8 +113,6 @@ public class Frick : MonoBehaviour {
                 break;
 
             case "touch":
-                Debug.Log("タッチ");
-                Debug.Log(touchEndPos);//タッチされた時の処理
                 break;
         }
     }
